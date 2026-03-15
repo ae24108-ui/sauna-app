@@ -1,0 +1,52 @@
+<!-- 施設登録ページ -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>施設登録 | Sauna App</title>
+    <meta name="description" content="サウナ施設を登録するページです。">
+    <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/ofuro_sauna_hat.png') }}" alt="サウナアプリのロゴ">
+            <p>ととのい</p>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('index') }}">サウナ施設一覧</a></li>
+            <li><a href="{{ url_for('new_facility') }}">施設登録</a></li>
+        </ul>
+    </div>
+
+    <div class="comment_post">
+        <h2>サウナ施設を登録</h2>
+        <form action="{{ url_for('create_facility') }}" method="post">
+            <div>
+                <label for="name">施設名</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="prefecture">都道府県</label>
+                <input type="text" id="prefecture" name="prefecture" required>
+            </div>
+
+            <div>
+                <label for="sauna_temp">サウナ室温度</label>
+                <input type="number" id="sauna_temp" name="sauna_temp" required>
+            </div>
+
+            <div>
+                <label for="water_temp">水風呂温度</label>
+                <input type="number" id="water_temp" name="water_temp" required>
+            </div>
+
+            <button type="submit">登録する</button>
+        </form>
+    </div>
+</body>
+</html>

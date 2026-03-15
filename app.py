@@ -15,6 +15,36 @@ def index():
     return render_template("index.html", facilities=facilities)
 
 
+#施設登録ページ表示
+@app.route("/facility/new")
+def new_facility():
+    return render_template("facility_form.html")
+
+
+#施設登録処理
+@app.route("/facility/create", methods=["POST"])
+def create_facility():
+    name = request.form["name"]
+    prefecture = request.form["prefecture"]
+    sauna_temp = request.form["sauna_temp"]
+    water_temp = request.form["water_temp"]
+
+    session = SessionLocal()
+
+    new_facility = Facility(
+        name = name,
+        prefecture = prefecture,
+        sauna_temp = int(sauna_temp),
+        water_temp = int(water_temp)
+    )
+
+    session.add(new_facility)
+    session.commit()
+    session.close()
+
+    return redirect(url_for("index"))
+
+
 #施設情報表示
 @app.route("/facility/<int:facility_id>")
 def facility_detail(facility_id):
@@ -33,7 +63,6 @@ def add_review(facility_id):
     comment = request.form["comment"]
 
     session = SessionLocal()
-    #レビューオブジェクト
     new_review = Review(
         facility_id=facility_id,
         user_name=user_name,
