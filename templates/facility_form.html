@@ -1,6 +1,7 @@
 <!-- 施設登録ページ -->
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,12 @@
 
     <div class="comment_post">
         <h2>サウナ施設を登録</h2>
-        <form action="{{ url_for('create_facility') }}" method="post">
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('create_facility') }}" method="post"> <!-- actionで送信先 -->
             <div>
                 <label for="name">施設名</label>
                 <input type="text" id="name" name="name" required>
@@ -48,5 +54,6 @@
             <button type="submit">登録する</button>
         </form>
     </div>
+
 </body>
 </html>

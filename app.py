@@ -31,6 +31,15 @@ def create_facility():
 
     session = SessionLocal()
 
+    #同施設の登録防止処理
+    existing_facility = session.query(Facility).filter_by(name=name).first()
+    if existing_facility:
+        session.close()
+        return render_template(
+            "facility_form.html",
+            error="同じ名前の施設はすでに登録されています"
+        )
+
     new_facility = Facility(
         name = name,
         prefecture = prefecture,
