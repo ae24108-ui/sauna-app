@@ -35,3 +35,5 @@ class Review(Base):
 
     facility = relationship("Facility", back_populates="reviews")
 
+#テーブルの作成処理
+Base.metadata.create_all(bind=engine)
