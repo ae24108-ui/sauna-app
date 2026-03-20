@@ -23,8 +23,12 @@
         </ul>
     </div>
 
-    <div class="list">
-        <h1>サウナ施設一覧</h1>
+    <div class="facility_list">
+        {% if search %}
+            <h1>「{{search}}の検索結果」</h1>
+        {% else %}
+            <h1>サウナ施設一覧</h1>
+        {% endif %}
         
         <!-- 検索機能 -->
         <div class="search_facility">

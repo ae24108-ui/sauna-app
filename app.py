@@ -20,7 +20,7 @@ def index():
     facilities = query.all()
     session.close()
 
-    return render_template("index.html", facilities=facilities)
+    return render_template("index.html", facilities=facilities, search=search)
 
 
 #施設登録ページ表示

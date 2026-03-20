@@ -91,25 +91,25 @@ img {
 /* =========================
    Facility List Page
 ========================= */
-.list {
+.facility_list {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
     text-align: center;
 }
 
-.list h1 {
+.facility_list h1 {
     margin-bottom: 24px;
     font-size: 28px;
 }
 
-.list ul {
+.facility_list ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.list li {
+.facility_list li {
     background-color: #fff;
     margin-bottom: 12px;
     padding: 16px 20px;
@@ -117,12 +117,12 @@ img {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.list li a {
+.facility_list li a {
     font-weight: bold;
     color: #8b5e00;
 }
 
-.list li a:hover {
+.facility_list li a:hover {
     text-decoration: underline;
 }
 
