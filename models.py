@@ -1,4 +1,4 @@
-#sqalchemyを使ったDB設計
+#sqlalchemyを使ったDB設計
 import os
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
